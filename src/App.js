@@ -42,6 +42,10 @@ class RichEditComponent extends React.Component {
     options.events.activeSubDocumentChanged = () => { };
     options.events.autoCorrect = () => { };
     options.events.calculateDocumentVariable = (s, e) => {
+      // after the following, ctrl+z works ok
+      // e.value = "asdasd"; 
+
+      // after the following, ctrl+z breaks
       const processor = s.createDocumentProcessor();
       const doc = processor.document;
       doc.insertText(0, 'asdasd');
