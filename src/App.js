@@ -41,7 +41,12 @@ class RichEditComponent extends React.Component {
     // events
     options.events.activeSubDocumentChanged = () => { };
     options.events.autoCorrect = () => { };
-    options.events.calculateDocumentVariable = () => { };
+    options.events.calculateDocumentVariable = (s, e) => {
+      const processor = s.createDocumentProcessor();
+      const doc = processor.document;
+      doc.insertText(0, 'asdasd');
+      e.value=processor;
+     };
     options.events.characterPropertiesChanged = () => { };
     options.events.contentInserted = () => { };
     options.events.contentRemoved = () => { };
